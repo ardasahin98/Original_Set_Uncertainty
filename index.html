@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBT Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body onload="loadQuestions()">
+    <div id="quiz-container">
+        <!-- Static First Page -->
+        <div class="page active" id="page-1">
+            <div class="question-header">
+                <h1>Behavior Type Selection Quiz</h1>
+                <p>
+                    This form is designed to guide you in selecting the behavior type based on cyclic laboratory test data. Each question includes two screenshots of laboratory test data for the “Last Cycle” and the “3% Strain Cycle.” The screenshots present only interpolated data (monotonic cubic spline) without any additional metrics. The total number of cycles is provided alongside the screenshots for better judgment of further cycles.
+                </p>
+                <p>
+                    The quiz comprises 64 test results with the following options for classification: “Sand-like behavior,” “Clay-like behavior,” “Intermediate behavior,” and “Data is not usable.” You may select only one option per question. If you wish to include comments, there is a separate optional section at the bottom of the form for that purpose.
+                </p>
+            </div>
+            <div class="question-header">
+                <label for="researcher-name"><b>Name of the Researcher:</b></label>
+                <select id="researcher-name" name="researcher-name">
+                    <option id="res-0" value="">-- Select a researcher --</option>
+                    <option id="res-1" value="Amalesh Jana">Amalesh Jana</option>
+                    <option id="res-2" value="Arda Sahin">Arda Sahin</option>
+                    <option id="res-3" value="Armin Stuedlein">Armin Stuedlein</option>
+                    <option id="res-4" value="Jonathan Stewart">Jonathan Stewart</option>
+                    <option id="res-5" value="Kristin Ulmer">Kristin Ulmer</option>
+                    <option id="res-6" value="Scott Brandenberg">Scott Brandenberg</option>
+                    <option id="res-7" value="Steven Kramer">Steven Kramer</option>
+                    <option id="res-8" value="Matt Evans">Matt Evans</option>
+                    <option id="res-9" value="Varun Nigesh">Varun Nigesh</option>
+                </select>
+            </div>
+            <div class="navigation-buttons">
+                <button onclick="navigatePage(0)">Next</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Questions Rendered Here -->
+
+        <!-- Static Last Page -->
+        <div class="page" id="last_page">
+            <div class="question-header">
+                <h1>Quiz Completed!</h1>
+                <p>
+                    You have finished the quiz! If you are satisfied with your answers, you can submit the form or review your answers.
+                </p>
+            </div>
+            <div class="navigation-buttons">
+                <button onclick="navigatePage(cachedQuestions.length - 1)">Back</button>
+                <button onclick="submitForm()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
