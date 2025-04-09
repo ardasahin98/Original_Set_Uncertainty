@@ -129,8 +129,8 @@ function renderPage(index) {
 }
 
 function saveAnswer(questionNumber) {
-    const slider = document.getElementById(`slider_${question.questionNumber}`);
-    const commentInput = document.getElementById(`comments_${question.questionNumber}`);
+    const slider = document.getElementById(`slider_${questionNumber}`);
+    const commentInput = document.getElementById(`comments_${questionNumber}`);
     const researcherName = document.getElementById("researcher-name").value.trim();
 
     if (!responses[questionNumber]) {
